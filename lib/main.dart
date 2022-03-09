@@ -12,8 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue),
         fontFamily: 'Alegreya',
+        canvasColor: const Color.fromARGB(255, 37, 52, 53),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
