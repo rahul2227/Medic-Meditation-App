@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medic_meditation_app/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         // primarySwatch: Colors.blue,
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue),
+        colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: createMaterialColor(const Color(0xff375253))),
+        // https://medium.com/@nickysong/creating-a-custom-color-swatch-in-flutter-554bcdcb27f3
         fontFamily: 'Alegreya',
         canvasColor: const Color.fromARGB(255, 37, 52, 53),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
