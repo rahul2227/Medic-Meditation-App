@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medic_meditation_app/widgets/custom_button.dart';
 
@@ -7,6 +6,7 @@ class Authorize extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: [
@@ -19,45 +19,76 @@ class Authorize extends StatelessWidget {
               ),
             ),
           ),
-          Center(
+          Positioned(
+            top: _size.height * 0.22,
+            right: _size.width * 0.2,
+            child: Center(
+              child: SizedBox(
+                // height: 94,
+                width: 226,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset('assets/images/Logo_auth_welcome.png'),
+                    const Text(
+                      'Welcome',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 34,
+                      ),
+                    ),
+                    const Text(
+                      'Do meditation. Stay focused. Live a healthy life.',
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      style: TextStyle(
+                        fontFamily: 'Alegreya Sans',
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 120.0,
+            left: 20,
+            right: 20,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Image(
-                  image: AssetImage('assets/images/Logo.png'),
-                ),
-                SizedBox(
-                  height: 94,
-                  width: 226,
-                  child: Column(
-                    children: const [
-                      Text(
-                        'Welcome',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 34,
-                        ),
-                      ),
-                      Text(
-                        'Do meditation. Stay focused. Live a healthy life.',
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                        style: TextStyle(
-                          fontFamily: 'Alegreya Sans',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const CustomButtonResponsive(buttonText: 'Login With Email'),
                 const SizedBox(
-                  height: 20,
+                  height: 10.0,
                 ),
-                const CustomButtonResponsive(buttonText: 'Login With Email')
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Don\'t have an account?',
+                      style: TextStyle(
+                        fontFamily: 'Alegreya Sans',
+                        fontSize: 16,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.underline),
+                      ),
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
