@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medic_meditation_app/auth/authorize.dart';
 import 'package:medic_meditation_app/theme/theme.dart';
+
+import 'features/auth/authorize.dart';
 
 void main() {
   runApp(const MyApp());

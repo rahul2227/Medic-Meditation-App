@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medic_meditation_app/features/auth/sign_in_screen.dart';
+import 'package:medic_meditation_app/features/auth/sing_up_screen.dart';
 import 'package:medic_meditation_app/widgets/custom_button.dart';
 
 class Authorize extends StatelessWidget {
@@ -58,7 +60,17 @@ class Authorize extends StatelessWidget {
             right: 20,
             child: Column(
               children: [
-                const CustomButtonResponsive(buttonText: 'Login With Email'),
+                CustomButtonResponsive(
+                  buttonText: 'Login With Email',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignInScreen(),
+                      ),
+                    );
+                  },
+                ),
                 const SizedBox(
                   height: 10.0,
                 ),
@@ -73,7 +85,14 @@ class Authorize extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpScreen(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         'Sign Up',
                         style: TextStyle(

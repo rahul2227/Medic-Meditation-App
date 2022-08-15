@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class CustomButtonResponsive extends StatelessWidget {
   final Color? buttonColor;
   final String buttonText;
-  const CustomButtonResponsive(
-      {Key? key, this.buttonColor, required this.buttonText})
-      : super(key: key);
+  final Function onPressed;
+  const CustomButtonResponsive({
+    Key? key,
+    this.buttonColor,
+    required this.buttonText,
+    required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +22,7 @@ class CustomButtonResponsive extends StatelessWidget {
               (buttonColor != null) ? buttonColor : const Color(0xff7c9a92),
             ),
           ),
-          onPressed: () {
-            print('clicked');
-          },
+          onPressed: () => onPressed.call(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
